@@ -75,18 +75,7 @@
         </div> 
         <body>
             <div class="mt-4">
-                <div class="container-sm p-0 bg-body-tertiary" style="background-color: blue;">
-                    <!-- <div class="row ">
-                        <div class="col m ps-0" style="background-color: brown;">
-                            <a class="btn btn-dark btn-lg" href=""><i class="bi bi-incognito"></i>-Clothes</a>
-                            <a class="btn btn-dark btn-lg" href=""><i class="bi bi-incognito"></i>-Clothes</a>
-                        </div>
-                        <div class="col ps-0" style="background-color: aquamarine;">
-                        </div>
-                        <div class="col">
-                        Column
-                        </div>
-                    </div> -->
+                <div class="container-sm p-0 bg-body-tertiary">
                     <div class="d-flex flex-row mb-0 justify-content-between">
                         <div class="p-0">
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
@@ -97,21 +86,155 @@
                                 <label class="btn btn-dark btn-lg rounded-0" for="btnradio2">Radio 2</label>
                               </div>                                 
                         </div>
-                        
+
                         <div class="p-1">
                             <div class="dropdown-center">
+                                <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                    Price Range
+                                  </button>
+                                  <form class="dropdown-menu p-4">
+                                    <div class="mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">₫</span>
+                                            <input type="text" class="form-control" name="price" placeholder="Min price">
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">₫</span>
+                                            <input type="text" class="form-control" name="price" placeholder="Min price">
+                                        </div>
+                                    </div>
+                                    <div class="d-inline">
+                                        <input class="btn btn-outline-light" type="reset" value="Reset">
+                                        <button type="submit" class="btn btn-outline-light">Confirm</button>
+                                    </div>
+                                  </form>
+                                
                                 <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                   Sort
                                 </button>
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                  <li><a class="dropdown-item" href="#">Default</a></li>
+                                  <li><a class="dropdown-item" href="#">Price <i class="bi bi-arrow-up"></i></a></li>
+                                  <li><a class="dropdown-item" href="#">Price <i class="bi bi-arrow-down"></i></a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="container-sm p-4 bg-body-secondary">
+                    <div class="row row-cols-5">
+                      <div class="col">
+                        {{range .Records}}
+                        <div class="card" style="width: 14rem;">
+                            <img src="/public/pics/{{.Screenshot}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">{{.Name}}</h5>
+                              <p class="card-text">{{.Price}} - {{.Category}} - {{.Seller}}</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                        {{end}}
+                      </div>
+                      <!-- <div class="col">
+                        <div class="card" style="width: 14rem;">
+                            <img src="/public/pics/cat.jpg" class="card-img-top" width="50" height="150" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card" style="width: 14rem;">
+                            <img src="/public/pics/dog.jpg" class="card-img-top" width="50" height="150" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card" style="width: 14rem;">
+                            <img src="/public/pics/hamster.png" class="card-img-top" width="50" height="150" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card" style="width: 14rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+
+                <!-- <div class="container-sm p-4 bg-body-secondary">
+                    <div class="d-flex flex-row mb-0 justify-content-center">
+                        <div class="p-2">
+                            <div class="card" style="width: 14rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Card title</h5>
+                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="card" style="width: 14rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Card title</h5>
+                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="card" style="width: 14rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Card title</h5>
+                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="card" style="width: 14rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Card title</h5>
+                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="card" style="width: 14rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">Card title</h5>
+                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  -->
             </div> 
         </body>
 
@@ -126,23 +249,3 @@
 
 
 
-        <!-- <div class="col-4">
-            <a class="btn btn-dark" href="">Popular</a>
-            <a class="btn btn-dark" href="">Newly Listed</a>
-    </div>
-    <div class="col-4">
-        <form method="post" enctype="multipart/form-data">
-            <div class="col-10">
-                <div class="input-group">
-                    <span class="input-group-text">$</span>
-                    <input type="number" class="form-control" name="price">
-                </div>
-            </div>
-            <div class="col-10">
-                <div class="input-group">
-                    <span class="input-group-text">$</span>
-                    <input type="number" class="form-control" name="price">
-                </div>
-            </div>
-        </form>
-    </div> -->
