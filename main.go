@@ -5,7 +5,7 @@ import (
 	"crypto/sha1"
 	"fmt"
 	"html/template"
-
+	"net/url"
 	// "image/png"
 	// "encoding/json"
 	"io"
@@ -280,6 +280,9 @@ func viewListing(res http.ResponseWriter, req *http.Request) {
 		User:    u,
 		Records: records,
 	}
+
+	SearchBar(res, req)
+
 	tpl.ExecuteTemplate(res, "viewListing.html", templateinput)
 }
 
@@ -336,7 +339,7 @@ func FindRecords(res http.ResponseWriter, req *http.Request) []item {
 	//pass these options to the Find method
 	findOptions := options.Find()
 	//Set the limit of the number of record to find
-	findOptions.SetLimit(3)
+	findOptions.SetLimit(20)
 	//Define an array in which you can store the decoded documents
 	var results []item
 
@@ -367,4 +370,18 @@ func FindRecords(res http.ResponseWriter, req *http.Request) []item {
 	// fmt.Printf("Found multiple documents: %+v\n", results)
 	// fmt.Println()
 	return results
+}
+
+func SearchBar(res http.ResponseWriter, req *http.Request) {
+	// if req.Method == http.MethodPost {
+	baseURL := "http://localhost:8080/viewListing"
+	v := url.Values{}
+
+	// take GetSearchKey from submitted form
+	v.Set("query", req.Form.Get("searchKey"))
+	// put it all together
+	perform := baseURL + "?" + v.Encode()
+	// do something with it
+	fmt.Println("Perform:", perform)
+	// }
 }
